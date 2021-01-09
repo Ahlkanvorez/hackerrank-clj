@@ -2,7 +2,7 @@
   (:require [clojure.test :refer [deftest is]]
             [hack.algo.array-sum :refer [simpleArraySum]]))
 
-(deftest aray-sum-test
+(deftest array-sum-test
   (is (= 31 (simpleArraySum [1 2 3 4 10 11])))
 
   (is (= 10 (simpleArraySum [1 2 3 4])))
