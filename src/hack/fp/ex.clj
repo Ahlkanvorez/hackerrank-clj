@@ -9,4 +9,4 @@
 (defn e
   "Approximate e^x using the Taylor Series with 10 terms to 4 decimals"
   [x]
-  (->> (map (partial series-term x) (range 10)) (reduce + 0) (round 4)))
+  (round 4 (transduce (map (partial series-term x)) + 0 (range 10))))
