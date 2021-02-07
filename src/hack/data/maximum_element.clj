@@ -1,22 +1,5 @@
 (ns hack.data.maximum-element)
 
-(defn maximum-element-loop [queries]
-  (loop [s []
-         m ##-Inf
-         queries queries]
-    (when-let [[c x] (first queries)]
-      (case c
-        1 (recur (conj s x) (max m x) (rest queries))
-        2 (let [h (peek s)
-                s (pop s)]
-            (recur s
-                   (if (= h m)
-                     (apply max (conj s ##-Inf))
-                     m)
-                   (rest queries)))
-        3 (do (println m)
-              (recur s m (rest queries)))))))
-
 (defn maximum-element [queries]
   (letfn [(dispatch [s m [[c x] & q]]
             (case c
